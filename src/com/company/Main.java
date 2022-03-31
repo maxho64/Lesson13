@@ -23,11 +23,11 @@ public class Main {
         System.out.println("Клон после изменения: " + clonedCar);
     }
 
-    public static void runEqualsAndHashCode(){
+    public static void runEqualsAndHashCode() {
         TestObject x = new TestObject(1, "x");
         TestObject y = new TestObject(1, "x");
         TestObject z = new TestObject(1, "x");
-        System.out.println("(x==y) = " + (x==y));
+        System.out.println("(x==y) = " + (x == y));
         System.out.println("1. Рефлексивность: x.equals(x) = " + x.equals(x));
         System.out.println("2. Симметричность: если x.equals(y) = " + x.equals(y) + ", тогда y.equals(x) = " + y.equals(x));
         System.out.println("3. Транзитивность: если x.equals(y) = " + x.equals(y) + " и y.equals(z) = " + y.equals(z) +
@@ -39,13 +39,13 @@ public class Main {
         System.out.println("y.hashCode() = " + y.hashCode());
     }
 
-    public static void runClass(){
+    public static void runClass() {
         TestObject test = new TestObject(1, "x");
         System.out.println(test.getClass());
         System.out.println(test);
     }
 
-    public static void runFinalize(){
+    public static void runFinalize() {
         FinalizeClass finalizeClass = new FinalizeClass();
         finalizeClass = null;
         System.gc();
@@ -53,7 +53,7 @@ public class Main {
     }
 }
 
-class Driver implements Cloneable{
+class Driver implements Cloneable {
     private String name;
     private int age;
 
@@ -100,7 +100,7 @@ class Driver implements Cloneable{
     }
 
     @Override
-    public Driver clone() throws CloneNotSupportedException{
+    public Driver clone() throws CloneNotSupportedException {
         return (Driver) super.clone();
     }
 }
@@ -156,7 +156,7 @@ class Car implements Cloneable {
     }
 
     @Override
-    public Car clone() throws CloneNotSupportedException{
+    public Car clone() throws CloneNotSupportedException {
         Car newCar = (Car) super.clone();
         Driver driver = this.getDriver().clone();
         newCar.setDriver(driver);
